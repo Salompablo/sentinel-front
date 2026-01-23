@@ -1,0 +1,87 @@
+<div class="alerts-container">
+    <header class="page-header">
+        <h1>Incident History</h1>
+        <p class="subtitle">Persistent record of anomalies and diagnostics (MongoDB)</p>
+    </header>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>TIME</th>
+                    <th>SERVER</th>
+                    <th>REGION</th>
+                    <th>STATUS</th>
+                    <th>ERROR DETAIL</th>
+                    <th>AI DIAGNOSIS</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (log of logs(); track log.id) {
+                <tr [class.has-analysis]="!!log.aiAnalysis">
+                    <td class="timestamp">
+                        {{ log.timestamp | date:'HH:mm:ss' }}
+                        <small>{{ log.timestamp | date:'MM/dd' }}</small>
+                    </td>
+
+                    <td class="server-name">{{ log.serverName }}</td>
+
+                    <td><span class="region-pill">{{ log.region }}</span></td>
+
+                    <td><span class="status-badge critical">CRITICAL</span></td>
+
+                    <td class="error-msg" [title]="log.content">
+                        {{ log.content | slice:0:60 }}{{ log.content.length > 60 ? '...' : '' }}
+                    </td>
+
+                    <td>
+                        @if (log.aiAnalysis) {
+                        <button class="view-btn" (click)="toggleDetails(log.id)">
+                            {{ expandedLogId() === log.id ? 'Hide' : 'View Analysis' }} </button>
+                        } @else {
+                        <span class="no-data">-</span>
+                        }
+                    </td>
+                </tr>
+
+                @if (expandedLogId() === log.id && log.aiAnalysis) {
+                <tr class="details-row">
+                    <td colspan="6">
+                        <div class="analysis-box">
+                            <div class="analysis-header">
+                                <span class="icon">🤖</span>
+                                <strong>Saved Diagnosis by Sentinel AI</strong>
+                            </div>
+                            <markdown class="markdown-content" [data]="log.aiAnalysis"></markdown>
+                        </div>
+                    </td>
+                </tr>
+                }
+                } @empty {
+                <tr>
+                    <td colspan="6" class="empty-state">
+                        <div class="empty-content">
+                            <span style="font-size: 2rem;">✅</span>
+                            <p>No incidents recorded in the system.</p>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination">
+        <button (click)="changePage(-1)" [disabled]="currentPage() === 0">
+            ← Previous
+        </button>
+
+        <span class="page-info">
+            Page <strong>{{ currentPage() + 1 }}</strong> of {{ totalPages() }}
+        </span>
+
+        <button (click)="changePage(1)" [disabled]="currentPage() >= totalPages() - 1">
+            Next →
+        </button>
+    </div>
+</div>

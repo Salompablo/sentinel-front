@@ -1,0 +1,63 @@
+<main class="dashboard-container">
+    <header class="page-header">
+        <div>
+            <h1>Real-Time Infrastructure</h1>
+            <p class="subtitle">Active server monitoring and AI-powered analysis</p>
+        </div>
+        <div class="status-badge">
+            <span class="pulse"></span> System Operational
+        </div>
+    </header>
+
+    <div class="grid-container">
+        @for (metrics of wsService.serverList(); track metrics.serverName) {
+        <div class="card" [class.critical]="metrics.status === 'CRITICAL'">
+            <div class="card-header">
+                <div class="server-info">
+                    <h2>{{ metrics.serverName }}</h2>
+                    <span class="region-pill">{{ metrics.region }}</span>
+                </div>
+                <div class="status-indicator" [class.online]="metrics.status !== 'CRITICAL'"></div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-box">
+                    <span class="label">CPU</span>
+                    <div class="progress-bar">
+                        <div class="fill" [style.width.%]="metrics.cpuUsage" [class.high]="metrics.cpuUsage > 80"></div>
+                    </div>
+                    <span class="value">{{ metrics.cpuUsage | number:'1.0-1' }}%</span>
+                </div>
+                <div class="metric-box">
+                    <span class="label">MEMORY</span>
+                    <div class="progress-bar">
+                        <div class="fill" [style.width.%]="metrics.memUsage" [class.high]="metrics.memUsage > 80"></div>
+                    </div>
+                    <span class="value">{{ metrics.memUsage | number:'1.0-1' }}%</span>
+                </div>
+            </div>
+
+            @if (metrics.latestError) {
+            <div class="incident-alert">
+                <div class="alert-header"><span>⚠️ Critical Failure Detected</span></div> <button class="ai-btn"
+                    (click)="analyzeIssue(metrics)" [disabled]="isAnalyzing(metrics.serverName)">
+                    {{ isAnalyzing(metrics.serverName) ? 'Analyzing...' : 'Diagnose with AI' }} </button>
+            </div>
+            }
+
+            @if (analysisResults.get(metrics.serverName); as result) {
+            <div class="ai-response">
+                <div class="response-header">
+                    <h3>🧠 Sentinel Analysis</h3> <button class="close-btn"
+                        (click)="closeAnalysis(metrics.serverName)">✕</button>
+                </div>
+                <markdown class="markdown-content" [data]="result"></markdown>
+            </div>
+            }
+        </div>
+        } @empty {
+        <div class="loading-state">
+            <p>📡 Establishing satellite link...</p>
+        </div> }
+    </div>
+</main>
