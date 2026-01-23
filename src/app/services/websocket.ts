@@ -1,6 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { RxStomp } from '@stomp/rx-stomp';
 import { SystemStatusDto } from '../models/SystemStatusDto';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,7 @@ export class WebSocketService {
 
   private connect() {
     this.rxStomp.configure({
-      brokerURL: 'ws://localhost:8080/system-metrics',
+      brokerURL: environment.socketUrl,
       reconnectDelay: 200,
     });
 
