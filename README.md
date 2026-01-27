@@ -1,9 +1,9 @@
 # Sentinel
 
-  ![Angular](https://angular.io/) (v19) - The web framework used.
-  ![Bootstrap 5](https://getbootstrap.com/) - For styling and responsive layout.
-  ![RxJS](https://rxjs.dev/) - For reactive programming and handling asynchronous data streams.
-  ![WebSockets & STOMP](https://stomp-js.github.io/)
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![RxJS](https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white)
   
 ## 🔗 Live Demo
 🚀 **Try the application live:** [https://sentinel-front-eight.vercel.app/](https://sentinel-front-eight.vercel.app/)
