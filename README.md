@@ -22,6 +22,10 @@ This project was developed as a technical initiative to master **real-time commu
 * **🔔 System Alerts:** Visual feedback and alerts for critical system states and performance thresholds.
 * **📱 Responsive Design:** Fully responsive UI built with Bootstrap 5.
 
+### Website view 
+
+![Sentinel Front](src/app/assets/Sentinel-front.gif)
+
 ## 🛠️ Built With
 
 * **[Angular](https://angular.io/)** (v19) - The web framework used.
