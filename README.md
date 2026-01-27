@@ -1,6 +1,5 @@
 # Sentinel
 
-<p align="left">
     ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
     ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
     ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
@@ -8,7 +7,6 @@
     <a href="[https://sentinel-front-eight.vercel.app/](https://sentinel-front-eight.vercel.app/)">
         <img src="[https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)" alt="Deploy">
     </a>
-</p>
 
 ## 🔗 Live Demo
 🚀 **Try the application live:** [https://sentinel-front-eight.vercel.app/](https://sentinel-front-eight.vercel.app/)
