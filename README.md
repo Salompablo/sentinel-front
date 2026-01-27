@@ -1,59 +1,85 @@
-# SentinelFrontend
+# Sentinel
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.6.
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![RxJS](https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white)
+  
+## 🔗 Live Demo
+🚀 **Try the application live:** [https://sentinel-front-eight.vercel.app/](https://sentinel-front-eight.vercel.app/)
 
-## Development server
+## 📋 About The Project
 
-To start a local development server, run:
+**Sentinel** is a client-side interface for a real-time system monitoring platform. It provides a responsive dashboard that allows administrators to visualize server health, track system logs, and leverage AI-driven insights for anomaly detection.
 
-```bash
-ng serve
-```
+This project was developed as a technical initiative to master **real-time communication patterns** and modern web architectures. Specifically, it focuses on the implementation of **WebSockets** using **STOMP** for instant data streaming and handling data from **NoSQL (non-relational)** databases.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Key Features
 
-## Code scaffolding
+* **⚡ Real-Time Monitoring:** Live visualization of system status using WebSockets (STOMP) for sub-second updates on server health.
+* **🤖 AI Integration:** Dedicated interface for AI-powered log analysis and system recommendations.
+* **📜 Log Management:** Comprehensive view of server logs streamed from a non-relational source.
+* **🔔 System Alerts:** Visual feedback and alerts for critical system states and performance thresholds.
+* **📱 Responsive Design:** Fully responsive UI built with Bootstrap 5.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ Built With
 
-```bash
-ng generate component component-name
-```
+* **[Angular](https://angular.io/)** (v19) - The web framework used.
+* **[Bootstrap 5](https://getbootstrap.com/)** - For styling and responsive layout.
+* **[RxJS](https://rxjs.dev/)** - For reactive programming and handling asynchronous data streams.
+* **[WebSockets & STOMP](https://stomp-js.github.io/)** - For real-time bidirectional communication.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🚀 Getting Started
 
-```bash
-ng generate --help
-```
+To get a local copy up and running, follow these simple steps.
 
-## Building
+### Prerequisites
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Ensure you have the following installed:
+* **Node.js** (v18 or higher recommended)
+* **npm**
+* **Angular CLI**
 
 ```bash
-ng e2e
+npm install -g @angular/cli
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Installation
 
-## Additional Resources
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/salompablo/sentinel-front.git
+    cd sentinel-front
+    ```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Configure Environment**
+    Check `src/app/environments/environment.ts` to ensure the API and WebSocket URLs point to your running backend instance (default is typically `localhost:8080`).
+
+4.  **Run the application**
+    ```bash
+    ng serve
+    ```
+    Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## 📂 Project Structure
+
+* `src/app/components`: UI components including the real-time Dashboard and Alert system.
+* `src/app/services`: Core services managing WebSocket connections (`WebSocketService`), AI integration (`AiService`), and Log streaming (`LogService`).
+* `src/app/models`: TypeScript interfaces representing the data structures (e.g., `ServerLog`, `SystemStatusDto`).
+
+## 👤 Author
+
+**Pablo Salom Pita**
+
+* GitHub: [@salompablo](https://github.com/salompablo)
+* Email: pablosalompita@gmail.com
+
+---
+<p align="center">
+  Developed to explore advanced concepts in Real-Time Web Architecture and NoSQL integrations.
+</p>
