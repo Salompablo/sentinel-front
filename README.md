@@ -28,7 +28,7 @@ This project was developed as a technical initiative to master **real-time commu
 
 ## 🛠️ Built With
 
-* **[Angular](https://angular.io/)** (v19) - The web framework used.
+* **[Angular](https://angular.io/)** (v21) - The web framework used.
 * **[Bootstrap 5](https://getbootstrap.com/)** - For styling and responsive layout.
 * **[RxJS](https://rxjs.dev/)** - For reactive programming and handling asynchronous data streams.
 * **[WebSockets & STOMP](https://stomp-js.github.io/)** - For real-time bidirectional communication.
